@@ -1,21 +1,31 @@
 package org.example;
-
-
 import java.util.Arrays;
-import java.util.Scanner;
 
 class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        // 일반
+        int[] arr = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-        String[] inputBits = sc.nextLine().split(" ");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] *= 2;
+        }
 
-        long sum = Arrays.stream(inputBits)
-                .mapToLong(e -> Long.parseLong(e))
-                .sum();
+        System.out.println(Arrays.toString(arr));
 
-        System.out.println(sum);
+        // 스트림
+        arr = new int[]{1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
 
-        sc.close();
+        int[] resultArr = Arrays.stream(arr)
+                .map(e -> {
+                    return e * 2;
+                })
+                .toArray();
+
+        resultArr = Arrays.stream(arr)
+                .map(e -> e * 2) // 이런식으로 줄여쓸 수 있다.
+                .toArray();
+
+        System.out.println(Arrays.toString(arr));
+        System.out.println(Arrays.toString(resultArr));
     }
 }
