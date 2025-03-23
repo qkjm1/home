@@ -1,6 +1,7 @@
 package org.example;
 
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 class Main {
@@ -9,11 +10,9 @@ class Main {
 
         String[] inputBits = sc.nextLine().split(" ");
 
-        long sum = 0;
-
-        for (String inputBit : inputBits) {
-            sum += Long.parseLong(inputBit);
-        }
+        long sum = Arrays.stream(inputBits)
+                .mapToLong(e -> Long.parseLong(e))
+                .sum();
 
         System.out.println(sum);
 
