@@ -35,13 +35,31 @@ class Main {
             }
             if (cmd.equals("article list")){
                 System.out.println("=======================================");
-                if()
-                for (Article article : save) { // save가 순회
-
-
-
-
+                if(save.size()==-0){
+                    System.out.println("게시글 없음");
+                }else {
+                    System.out.println("    번호    /     제목     /      내용     ");
+                    for (int i = save.size() - 1; i >= 0; i--) {
+                        Article article = save.get(i);     //  이 시기에 인스턴스 변수 발생
+                        System.out.printf("      %d    /      %s     /     %s     \n",article.getId(),article.getTitle(),article.getBody()); // Atrucle private 변수넣기
+                    }
                 }
+            }
+            if (cmd.startsWith("article detail")){
+                System.out.println("====상세보기====");
+                int ii = Integer.parseInt(cmd.split(" ")[2]); // 공백 기준으로 자르면 2번 인덱스가 정수가 옴
+                Article findar = null;
+                for (Article article : save) {
+                    if (article.getId() == ii){
+                        findar = article;
+                        break;}
+                }
+                if (findar == null) {
+                    System.out.println("게시글 없음");
+                }
+                System.out.println("번호 : " + findar.getId());
+                System.out.println("제목 : " + findar.getTitle());
+                System.out.println("내용 : " + findar.getBody());
             }
         }
     }
