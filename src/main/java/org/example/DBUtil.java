@@ -172,3 +172,4 @@ public class DBUtil {
         return update(dbConn, sql);
     }
 }
+// 각자 해당되는 메서드가 무슨 기능인지 확인 db연결에 계속 쓰임
