@@ -1,14 +1,25 @@
 package org.example;
 
-import org.example.exception.App;
-import java.util.Scanner;
+
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
+        String my_string="ihrhbakrfpndopljhygc";
+        int m=4;
+        int c=2;
+        char[][] result = new char[my_string.length()/m][m];
 
-        new App(sc).run();
+        for(int i=0; i<result.length; i++) {
+            for(int j=0; j< m; j++) {
+                result[i][j]= my_string.charAt(m*i+j);
+            }
+        }
 
-        sc.close();
+        char[] result2 = new char[result.length];
+
+        for(int i=0; i<result.length; i++) {
+            result2[i] = result[i][c-1];
+        }
+        System.out.println(result2);
     }
 }
